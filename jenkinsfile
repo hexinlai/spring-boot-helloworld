@@ -2,7 +2,7 @@ pipeline {
    agent any
    
    environment {
-       docker_host = "docker.hexinlai"
+       docker_host = "hexinlai"
        img_name = "hello-world"
        docker_img_name = "${docker_host}/${img_name}"
        build_tag = "0.0.1-SNAPSHOT"
@@ -23,14 +23,14 @@ pipeline {
       }
       stage('Build') {
          steps {
-	    sh "docker build -t ${docker_img_name}:${build_tag} ./"
+	          sh "docker build -t ${docker_img_name}:${build_tag} ./"
          }
       }
 
       stage('Push') {
          steps {
-	    sh "docker login -u ${dockerUser} -p ${dockerPassword} ${docker_host}"
-	    sh "docker push ${docker_img_name}:${build_tag}"
+	          sh "docker login -u ${dockerUser} -p ${dockerPassword}"
+	          sh "docker push ${docker_img_name}:${build_tag}"
          }
       }
    }
