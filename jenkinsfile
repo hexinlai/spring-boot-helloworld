@@ -5,9 +5,7 @@ pipeline {
        docker_host = "hexinlai"
        img_name = "hello-world"
        docker_img_name = "${docker_host}/${img_name}"
-       build_tag = "0.0.1-SNAPSHOT"
        dockerUser = "hexinlai"
-       dockerPassword = "hexinlai1991"
    }
 
    stages {
