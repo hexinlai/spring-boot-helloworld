@@ -18,10 +18,10 @@ public class HelloWorldController {
     
     @RequestMapping(
             method = RequestMethod.GET,
-            value = "/greating"
+            value = "/greeting"
     )
-    public String greating() {
-        return "This is a greating";
+    public String greeting() {
+        return "This is a greeting";
     }
 
 
