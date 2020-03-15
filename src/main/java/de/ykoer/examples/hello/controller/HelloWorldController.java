@@ -15,6 +15,14 @@ public class HelloWorldController {
     public String ping() {
         return "Hello World! It is wonderful!";
     }
+    
+    @RequestMapping(
+            method = RequestMethod.GET,
+            value = "/greating"
+    )
+    public String greating() {
+        return "This is a greating";
+    }
 
 
 }
