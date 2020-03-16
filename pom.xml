@@ -12,7 +12,7 @@
 
     <groupId>de.ykoer.examples</groupId>
     <artifactId>spring-boot-helloworld</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.1-RC1</version>
     <packaging>jar</packaging>
 
     <name>spring-boot-microservice</name>
