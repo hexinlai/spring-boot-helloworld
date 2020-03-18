@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app.kubernetes.io/name: application
+  name: application
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: application
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: application
+    spec:
+      containers:
+      - image: hexinlai/application:version
+        name: application
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
