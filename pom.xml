@@ -24,6 +24,19 @@
         <java.version>1.8</java.version>
     </properties>
 
+    <distributionManagement>
+        <repository>
+          <id>ucabhea</id>
+          <url>https://pkgs.dev.azure.com/ucabhea/_packaging/ucabhea/maven/v1</url>
+          <releases>
+            <enabled>true</enabled>
+          </releases>
+          <snapshots>
+            <enabled>true</enabled>
+          </snapshots>
+        </repository>
+    </distributionManagement>
+
 
     <dependencies>
         <dependency>
@@ -74,6 +87,17 @@
             </plugin>
         </plugins>
     </build>
-
-
+    
+    <repositories>
+        <repository>
+          <id>ucabhea</id>
+          <url>https://pkgs.dev.azure.com/ucabhea/_packaging/ucabhea/maven/v1</url>
+          <releases>
+            <enabled>true</enabled>
+          </releases>
+          <snapshots>
+            <enabled>true</enabled>
+          </snapshots>
+        </repository>
+    </repositories>
 </project>
