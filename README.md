@@ -13,9 +13,14 @@ Clone repo to local
 3. az aks create --resource-group resourcegroup --name clustername --node-count 1 --enable-addons monitoring --generate-ssh-keys
 4. az aks get-credentials --resource-group resourcegroupname --name clustername
 
-## Deploy to AKS
-1. kubectl apply -f hello-world.yaml
+##Deploy to AKS
+1. kubectl apply -f hello-world-deployment.yaml
+2. kubectl expose deployment hello-world --type=LoadBalancer --name=hello-world
 
 ## Health Check
-1. az get services hello-world
-2. az get pods
+1. kubectl get services hello-world
+2. kubectl get pods
+
+## Delete Pods
+1. kubectl delete services hello-world
+2. kubectl delete deployment hello-world
