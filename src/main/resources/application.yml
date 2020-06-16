@@ -5,6 +5,9 @@ server:
 application:
     version: 1.0
 
+azure:
+  application-insights:
+    instrumentation-key: f483c428-cbd3-4abd-abae-d4a775bb7654
 
 keycloak:
     host: ${KEYCLOAK_HOST:http://localhost:8080}
