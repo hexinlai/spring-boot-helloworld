@@ -75,5 +75,5 @@
         </plugins>
     </build>
 
-
+    <finalName>${project.artifactId}</finalName>
 </project>
