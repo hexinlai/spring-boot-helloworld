@@ -38,8 +38,6 @@ steps:
       
    echo "======Show Directory====="
 
-   pwd
-
    ls
   displayName: 'Create Version File'
 
@@ -48,8 +46,8 @@ steps:
   inputs:
     SourceFolder: '$(system.defaultworkingdirectory)'
     Contents: |
-      '**/*.jar'
-      '**/version.txt'
+      **/*.jar
+      **/version.txt
     TargetFolder: '$(build.artifactstagingdirectory)'
 
 - task: PublishBuildArtifacts@1
