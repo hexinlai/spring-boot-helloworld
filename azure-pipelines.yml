@@ -21,10 +21,7 @@ steps:
   inputs:
     mavenPomFile: 'pom.xml'
 
-- script: |
-   echo "======Show Directory====="
-   pwd
-   
+- script: |   
    echo "======List Files====="
    ls
    
@@ -38,6 +35,10 @@ steps:
 
 - script: |
    echo $(APP_VERSION) >> version.txt
+      
+   echo "======Show Directory====="
+
+   ls
   displayName: 'Create Version File'
 
 - task: CopyFiles@2
