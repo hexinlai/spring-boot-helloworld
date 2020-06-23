@@ -37,7 +37,7 @@ steps:
   displayName: 'Get App Version'
 
 - script: |
-   echo $(APP_VERSION) >> version.txt"
+   echo $(APP_VERSION) >> version.txt
   displayName: 'Create Version File'
 
 - task: CopyFiles@2
