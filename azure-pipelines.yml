@@ -21,19 +21,6 @@ steps:
   inputs:
     mavenPomFile: 'pom.xml'
 
-- task: CopyFiles@2
-  displayName: 'Copy Files to: $(build.artifactstagingdirectory)'
-  inputs:
-    SourceFolder: '$(system.defaultworkingdirectory)'
-    Contents: '**/*.jar'
-    TargetFolder: '$(build.artifactstagingdirectory)'
-
-- task: PublishBuildArtifacts@1
-  displayName: 'Publish Artifact: Hello-World'
-  inputs:
-    PathtoPublish: '$(build.artifactstagingdirectory)'
-    ArtifactName: 'Hello-World'
-
 - script: |
    echo "======Show Directory====="
    pwd
@@ -48,6 +35,25 @@ steps:
    appversion=$( mvn help:evaluate -Dexpression=project.version -q -DforceStdout )
    echo "##vso[task.setvariable variable=APP_VERSION;]$appversion"
   displayName: 'Get App Version'
+
+- script: |
+   echo $(APP_VERSION) >> version.txt"
+  displayName: 'Create Version File'
+
+- task: CopyFiles@2
+  displayName: 'Copy Files to: $(build.artifactstagingdirectory)'
+  inputs:
+    SourceFolder: '$(system.defaultworkingdirectory)'
+    Contents: |
+      '**/*.jar',
+      'version.txt'
+    TargetFolder: '$(build.artifactstagingdirectory)'
+
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Artifact: Hello-World'
+  inputs:
+    PathtoPublish: '$(build.artifactstagingdirectory)'
+    ArtifactName: 'Hello-World'
 
 - task: Docker@2
   displayName: buildAndPush
