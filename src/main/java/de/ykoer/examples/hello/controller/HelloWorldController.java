@@ -26,7 +26,7 @@ public class HelloWorldController {
     )
     public String greeting() {
     	logger.info("This is /greeting request");
-        return "This is a Greeting";
+        return "This is a greeting";
     }
     
     @RequestMapping(
